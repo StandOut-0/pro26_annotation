@@ -25,33 +25,32 @@ public class LoginController {
 
 	@RequestMapping(value = "test/login.do", method = { RequestMethod.GET, RequestMethod.POST })
 //	1. request.getParameter으로 파라미터 가져오기
-	public ModelAndView login(HttpServletRequest request, HttpServletRequest response) {
-		String userID = request.getParameter("userID");
-		String userName = request.getParameter("userName");
-		String userEmail = request.getParameter("userEmail");
+//	public ModelAndView login(HttpServletRequest request, HttpServletRequest response) {
+//		String userID = request.getParameter("userID");
+//		String userName = request.getParameter("userName");
+//		String userEmail = request.getParameter("userEmail");
 
-//	@RequestParam으로 파라미터 가져오기	
+//	2. @RequestParam으로 파라미터 가져오기	
 //	public ModelAndView login(
 //			@RequestParam("userID") String userID, 
 //			@RequestParam("userName") String userName,
 //			@RequestParam("userEmail") String userEmail,
 //			HttpServletRequest request, HttpServletResponse response) {
 
-//  2. hidden값 출력하기 + required true일경우 오류발생, false일경우 null값 할당
+//  3. required true일경우 오류발생, false일경우 null값 할당
 //	public ModelAndView login(
 //			@RequestParam("userID") String userID,
 //			@RequestParam("userName") String userName,
-//			//@RequestParam(value="userEmail", required = true) String userEmail,
-//			@RequestParam(value="userEmail", required = false) String userEmail,
+//			@RequestParam(value="userEmail", required = true) String userEmail,
+////			@RequestParam(value="userEmail", required = false) String userEmail,
 //			HttpServletRequest request, HttpServletResponse response) {
-//		System.out.println(userEmail);
+//		System.out.println("false일때 값이 뜨나요?"+userEmail);
+//		System.out.println("true일때 값이 뜨나요?"+userEmail);
 
 //	1 ~ 3에 쓰임
-	ModelAndView mav = new ModelAndView();
-	mav.setViewName("result");
-	mav.addObject("userID", userID);
-	mav.addObject("userName", userName);
-	mav.addObject("userEmail", userEmail);
+//	ModelAndView mav = new ModelAndView();
+//	mav.setViewName("result");mav.addObject("userID", userID);
+//	mav.addObject("userName", userName);mav.addObject("userEmail", userEmail);
 
 // 	4. Map으로 출력하기
 //	public ModelAndView login(@RequestParam Map<String, String> info1, HttpServletRequest request,
@@ -70,14 +69,14 @@ public class LoginController {
 //		mav.addObject("userEmail", userEmail);
 
 //	6. Model 인터페이스로 바로 출력하기
-//	public String login(Model model, HttpServletRequest request, HttpServletResponse response) {
-//		model.addAttribute("userID", "sanghee");
-//		model.addAttribute("userName", "박상희");
-//		model.addAttribute("userEmail", "sanghee@sanghee.com");
-//		return "result";
+	public String login(Model model, HttpServletRequest request, HttpServletResponse response) {
+		model.addAttribute("userID", "sanghee");
+		model.addAttribute("userName", "박상희");
+		model.addAttribute("userEmail", "sanghee@sanghee.com");
+		return "result";
 		
 		//1 ~ 5에서 쓰임
-		return mav;
+//		return mav;
 
 	}
 

@@ -16,7 +16,10 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/test/" />
-		<property name="suffix" value=".jsp" />
+		
+		<!-- 26.4 @Autowired 이용해 빈 주입하기-->
+		<property name="prefix" value="/WEB-INF/views/member/" />
+		<!-- <property name="suffix" value=".jsp" /> --> 
 	</bean>
 
 	<bean

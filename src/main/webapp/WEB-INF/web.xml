@@ -4,6 +4,21 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
 	id="WebApp_ID" version="4.0">
 
+	<!-- 26.4 @Autowired 이용해 빈 주입하기 
+	- 각각의 빈을 DI로 주입했던 기능을 코드에서 애너테이션으로 자동으로 수행 
+	- 별도의 setter나 생성자 없이 속성에 빈을 주입할 수 있음 -->
+	<!-- ContextLoaderListener, 애플리케이션이 실행될때 action-mybatis.xml를 읽도록 함. -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+          /WEB-INF/config/action-mybatis.xml
+      </param-value>
+	</context-param>
+
+
 	<!-- CharacterEncodingFilter 한글깨짐방지 한글필터기능 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
@@ -18,7 +33,7 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	<!-- 한글깨짐방지 한글필터기능 -->
-	
+
 
 	<!-- action시 *.do형식으로 Dispatcher -->
 	<servlet>
